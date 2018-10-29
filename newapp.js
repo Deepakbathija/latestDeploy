@@ -135,11 +135,11 @@ app.get("/list",function(req,res){
 			console.log(err);
 		}else{
 			currentPage=1;
-			totalPages=parseInt(co/5);
 			console.log("currentPage = "+currentPage);
 			Property.count({},function(err1,co){
 				console.log("count is " + co);
 				count12=co;
+				totalPages=parseInt(co/5);
 				console.log("count glogal is "+count12);
 				res.render("properties/property-list",{prop:prop,co:co,cp:currentPage,tp:totalPages});
 			});
