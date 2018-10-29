@@ -130,7 +130,7 @@ app.get("/list",function(req,res){
 	//search logic begins
 	//==========================
 	if(req.query.propDetails){
-		Property.find({$and:[{state:req.query.propDetails.state},{ city:req.query.propDetails.city},{ propStatus:req.query.propDetails.propStatus}]},{ sort: { '_id' : -1 } },function(err,prop){
+		Property.find({$and:[{state:req.query.propDetails.state},{ city:req.query.propDetails.city},{ propStatus:req.query.propDetails.propStatus}]},function(err,prop){
 		if(err){
 			console.log(err);
 		}else{
