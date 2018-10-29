@@ -19,7 +19,7 @@
   	<hr>
     <div class="row buySection">
       <div class="col-lg-12">
-        <span class="price-pos"><h4>Rs <%= prop.propPrice %></h4></span><button type="button" class="btn btn-success btnCus"><% if(prop.propStatus ==="1"){ %>
+        <span class="price-pos"><h4>Rs <%= prop.propPrice %></h4></span><button type="button" class="btn btn-success btnCus"><% if(prop.propType=='1'){ %>
           Rent Now
           <% }else{ %>
           Buy Now
@@ -128,17 +128,17 @@
   		<div class="wrap">
   <div id="arrow-left" class="arrow"></div>
   <div id="slider">
-    <div class="slide slide1" style="background-image: url(<%= prop.img1 %>)">
+    <div class="slide slide1">
       <div class="slide-content">
         
       </div>
     </div>
-    <div class="slide slide2" style="background-image: url(<%= prop.img2 %>)">
+    <div class="slide slide2">
       <div class="slide-content">
         
       </div>
     </div>
-    <div class="slide slide3" style="background-image: url(<%= prop.img3 %>)">
+    <div class="slide slide3">
       <div class="slide-content">
         
       </div>
@@ -154,48 +154,29 @@
     <div class="row">
       <div class="col-lg-12">
         
-        <div id="welcomeDiv"  style="display:none;" class="answer_list" > WELCOME<div class="row">
-      <div class="col-lg-3 col-md-6">
-        <form action="/properties/<%= prop._id %>?_method=PUT" method="POST">
-        <label for="Flag content">Status</label>
-          <select  id="Flag content" name="report[reportreason]" class="custom-select mb-2 mr-sm-2 mb-sm-0">
-            <option></option>
-            <option value="Improper Information">Improper Information</option>
-            <option value="Content not suitaible for all the ages">Content not suitaible for all the ages</option>
-          </select>
-          <div class="col-lg-3 col-md-6">
-        <input type="submit" name="submit" value="Report property!">
-      </div>
-        </form>
-      </div>
-      
-    </div>
- 
-          <div class="row">
-      <div class="col-lg-3 col-md-6">
-        <form action="/properties/<%= prop._id %>?_method=PUT" method="POST">
-        <label for="Flag content">Status</label>
-          <select  id="Flag content" name="report[reportreason]" class="custom-select mb-2 mr-sm-2 mb-sm-0">
-            <option></option>
-            <option value="Improper Information">Improper Information</option>
-            <option value="Content not suitaible for all the ages">Content not suitaible for all the ages</option>
-          </select>
-          <div class="col-lg-3 col-md-6">
-        <input type="submit" name="submit" value="Report property!">
-      </div>
-        </form>
-      </div>
-      
-    </div>
- 
-
-        </div>
+        <div id="welcomeDiv"  style="display:none;" class="answer_list" > WELCOME</div>
         
-      <input type="button" name="answer" value="Show Div"  <% if(currentUser) { %> onclick="showDiv()" <% } %>   />
+<input type="button" name="answer" value="Show Div"  <% if(currentUser) { %> onclick="showDiv()" <% } %>   />
 
       </div>
     </div>
-     </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <form action="/properties/<%= prop._id %>?_method=PUT" method="POST">
+        <label for="Flag content">Status</label>
+          <select  id="Flag content" name="report[reportreason" class="custom-select mb-2 mr-sm-2 mb-sm-0">
+            <option></option>
+            <option value="Improper Information">Improper Information</option>
+            <option value="Content not suitaible for all the ages">Content not suitaible for all the ages</option>
+          </select>
+          <div class="col-lg-3 col-md-6">
+        <input type="submit" name="submit" value="Report property!">
+      </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
   
 <% include ../partials/footer %>
  <script type="text/javascript" src="/js/propertiesPage.js"></script>
